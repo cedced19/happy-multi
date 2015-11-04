@@ -2,24 +2,166 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <title>Happy Multi</title>
 
-    <!--
-        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
-        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
-    -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
-    <title>happymulti</title>
-
-    <!-- happymulti references -->
-    <link href="css/index.css" rel="stylesheet" />
+    <link href="css/phonon.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
 </head>
 <body>
-    <p>Hello, your application is ready!</p>
+    <home data-page="true">
 
-    <!-- Cordova reference, this is added to your app when it's built. -->
+        <header class="header-bar">
+            <div class="center">
+                <button class="btn pull-left icon icon-menu" data-side-panel-id="side-home"></button>
+                <h1 class="title">Happy Multi</h1>
+            </div>
+        </header>
+        <div class="content">
+            <div class="padded-full">
+                <h1 data-i18n="text: initialyse-title"></h1>
+                <p data-i18n="text: initialyse-text"></p>
+                <p data-i18n="text: table-of"></p>
+                <ul class="list">
+                    <li>
+                        <label class="checkbox">
+                            <input type="checkbox">
+                            1
+                            <span></span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="checkbox">
+                            <input type="checkbox">
+                            2
+                            <span></span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="checkbox">
+                            <input type="checkbox">
+                            3
+                            <span></span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="checkbox">
+                            <input type="checkbox">
+                            4
+                            <span></span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="checkbox">
+                            <input type="checkbox">
+                            5
+                            <span></span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="checkbox">
+                            <input type="checkbox">
+                            6
+                            <span></span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="checkbox">
+                            <input type="checkbox">
+                            7
+                            <span></span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="checkbox">
+                            <input type="checkbox">
+                            8
+                            <span></span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="checkbox">
+                            <input type="checkbox">
+                            9
+                            <span></span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="checkbox">
+                            <input type="checkbox">
+                            10
+                            <span></span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="checkbox">
+                            <input type="checkbox">
+                            25
+                            <span></span>
+                        </label>
+                    </li>
+                </ul>
+                <div class="padded-bottom"></div>
+                <button class="btn fit-parent primary" data-i18n="text: start"></button>
+            </div>
+        </div>
+    </home>
+
+    <language data-page="true">
+        <header class="header-bar">
+            <div class="center">
+                <button class="btn icon icon-arrow-back pull-left" data-navigation="$previous-page"></button>
+                <h1 class="title">Happy Multi</h1>
+            </div>
+        </header>
+        <div class="content">
+            <div class="padded-full">
+                <h1 data-i18n="text: language"></h1>
+                <p data-i18n="text: language-select"></p>
+                <ul class="list">
+                    <li class="padded-for-list">
+                        <label class="radio">
+                            <input type="radio">
+                            English
+                            <span></span>
+                        </label>
+                    </li>
+                    <li class="padded-for-list">
+                        <label class="radio">
+                            <input type="radio">
+                            Français
+                            <span></span>
+                        </label>
+                    </li>
+                    <li class="padded-for-list">
+                        <label class="radio">
+                            <input type="radio">
+                            Deutsch
+                            <span></span>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </language>
+
+    <div class="side-panel side-panel-left" data-expose-aside="none" data-disable="right" data-page="home" id="side-home">
+        <header class="header-bar">
+            <button class="btn pull-right icon icon-close show-for-phone-only" data-side-panel-close="true"></button>
+            <div class="pull-left">
+                <h1 class="title" data-i18n="text: menu"></h1>
+            </div>
+        </header>
+
+        <div class="content">
+            <ul class="list">
+                <li><a class="padded-list" data-i18n="text: language" href="#!language"></a></li>
+            </ul>
+        </div>
+    </div>
+
     <script src="cordova.js"></script>
-    <script src="scripts/platformOverrides.js"></script>
 
-    <script src="scripts/index.js"></script>
+    <script src="js/phonon.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
