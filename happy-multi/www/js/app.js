@@ -2,6 +2,7 @@
     navigator: {
         defaultPage: 'home',
         animatePages: true,
+        templateRootDirectory: 'views/',
         enableBrowserBackButton: true
     },
     i18n: { 
@@ -13,18 +14,18 @@
 var language = localStorage.getItem('language') || (window.navigator.userLanguage || window.navigator.language).split('-')[0];
 phonon.updateLocale(language);
 
-phonon.navigator().on({page: 'home', preventClose: false, readyDelay: 0}, function(activity) {
-    var checkbox = document.querySelectorAll('input[type=checkbox]');
+phonon.navigator().on({page: 'home', content: 'home.html', preventClose: false, readyDelay: 0}, function(activity) {
 
     activity.onCreate(function () {
+        var checkboxs = document.querySelectorAll('input[type=checkbox]');
         document.querySelector('#start-btn').on('click', function () {
             var numbers = [];
-            for (var i = 0; i < checkbox.length; i++) {
-                if (checkbox[i].checked) {
-                    numbers.push(checkbox[i].name);
+            for (var i = 0; i < checkboxs.length; i++) {
+                if (checkboxs[i].checked) {
+                    numbers.push(checkboxs[i].name);
                 }
             }
-            localStorage.setItem('numbers', numbers);
+            localStorage.setItem('numbers', JSON.stringify(numbers));
             if (numbers.length === 0) {
                 phonon.i18n().get(['error', 'no_table'], function (values) {
                     phonon.alert(values.no_table, values.error, false);
@@ -36,18 +37,20 @@ phonon.navigator().on({page: 'home', preventClose: false, readyDelay: 0}, functi
     });
 
     activity.onReady(function () {
-        var numbers = localStorage.getItem('numbers');
+        var checkboxs = document.querySelectorAll('input[type=checkbox]');
+        var numbers = JSON.parse(localStorage.getItem('numbers'));
         for (var i = 0; i < numbers.length; i++) {
-            for (var j = 0; j < checkbox.length; j++) {
-                if (numbers[i] == checkbox[j].name) {
-                    checkbox[j].checked = true;
+            for (var j = 0; j < checkboxs.length; j++) {
+                if (numbers[i] == checkboxs[j].name) {
+                    checkboxs[j].checked = true;
+                    break;
                 }
             }
         }
     });
 });
 
-phonon.navigator().on({page: 'game', preventClose: false, readyDelay: 0}, function (activity) {
+phonon.navigator().on({ page: 'game', content: 'game.html', preventClose: false, readyDelay: 0 }, function (activity) {
 
     activity.onCreate(function () {
         document.querySelector('#exit-btn').on('click', function () {
@@ -64,14 +67,22 @@ phonon.navigator().on({page: 'game', preventClose: false, readyDelay: 0}, functi
     });
 
     activity.onReady(function () {
-        console.log(localStorage.getItem('numbers'));
+        var numbers = JSON.parse(localStorage.getItem('numbers'));
+        var text = '';
+        for (var i = 0; i < numbers.length; i++) {
+            text += numbers[i];
+            if (i !== (numbers.length - 1)) {
+                text += ', ';
+            }
+        };
+        document.querySelector('#numbers').textContent = text;
     });
 });
 
-phonon.navigator().on({page: 'language', preventClose: false, readyDelay: 0}, function (activity) {
-    var radios = document.getElementsByName('language');
+phonon.navigator().on({ page: 'language', content: 'language.html', preventClose: false, readyDelay: 0 }, function (activity) {
 
     activity.onCreate(function () {
+        var radios = document.querySelectorAll('input[name=language]');
         document.querySelector('#language-btn').on('click', function () {
             for (var i = 0; i < radios.length; i++) {
                 if (radios[i].checked) {
@@ -88,6 +99,7 @@ phonon.navigator().on({page: 'language', preventClose: false, readyDelay: 0}, fu
     });
 
     activity.onReady(function () {
+        var radios = document.querySelectorAll('input[name=language]');
         for (var i = 0; i < radios.length; i++) {
             if (radios[i].value == language) {
                 radios[i].checked = true;

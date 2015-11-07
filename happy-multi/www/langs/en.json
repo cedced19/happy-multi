@@ -8,9 +8,11 @@
   "information": "Information",
   "warning": "Warning",
   "error": "Error",
+  "result": "Result",
   "language_select": "Choose your language, you can choose from seven different languages.",
   "language_btn": "Update your language",
   "language_confirm": "The language has just been updated.",
   "question_sure": "Are you sure?",
-  "no_table": "You haven't selected table."
+  "no_table": "You haven't selected table.",
+  "game_summary": "You will be tested on:"
 }
