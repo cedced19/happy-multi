@@ -1,10 +1,12 @@
 ﻿{
-  "initialyse-title": "Welcome!",
-  "initialyse-text":  "Please select the multiplication tables to revise.",
-  "table-of":  "Multiplication tables of:",
+  "initialyse_title": "Welcome!",
+  "initialyse_text":  "Please select the multiplication tables to revise.",
+  "table_of":  "Multiplication tables of:",
   "start": "Start",
   "menu": "Menu",
   "language": "Language",
-  "language-select": "Choose your language, you can choose from seven different languages.",
-  "language-btn": "Update your language"
+  "information":  "Information",
+  "language_select": "Choose your language, you can choose from seven different languages.",
+  "language_btn": "Update your language",
+  "language_confirm": "The language has just been updated."
 }

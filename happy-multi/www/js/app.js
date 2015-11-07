@@ -33,6 +33,9 @@ phonon.navigator().on({page: 'language', preventClose: false, readyDelay: 0}, fu
                     break;
                 }
             }
+            phonon.i18n().get(['language_confirm', 'information'], function (values) {
+                phonon.alert(values.language_confirm, values.information, false);
+            });
         });
     });
 

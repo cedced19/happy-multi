@@ -1,10 +1,12 @@
 ﻿{
-  "initialyse-title": "Bienvenue !",
-  "initialyse-text": "Veuillez choisir les tables de multiplication à reviser.",
-  "table-of": "Tables de multiplication de:",
+  "initialyse_title": "Bienvenue !",
+  "initialyse_text": "Veuillez choisir les tables de multiplication à reviser.",
+  "table_of": "Tables de multiplication de:",
   "start": "Commencez",
   "menu": "Menu",
   "language": "Langue",
-  "language-select": "Choisissez votre langue, vous pouvez choisir parmi sept langues différentes.",
-  "language-btn": "Modifiez votre langue"
+  "information":  "Information",
+  "language_select": "Choisissez votre langue, vous pouvez choisir parmi sept langues différentes.",
+  "language_btn": "Modifiez votre langue",
+  "language_confirm": "La langue vient d'être changée."
 }
