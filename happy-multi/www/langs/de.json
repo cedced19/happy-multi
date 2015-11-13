@@ -2,6 +2,8 @@
   "initialyse_title": "Willkommen!",
   "initialyse_text": "Bitte wählen Sie die Multiplikationstabellen zu überarbeiten.",
   "table_of": "Multiplikationstabellen von:",
+  "ok": "Ja",
+  "cancel": "Absagen",
   "start": "Beginn",
   "menu": "Menu",
   "language": "Sprache",
@@ -14,5 +16,10 @@
   "language_confirm": "Die Sprache hat gerade aktualisiert.",
   "question_sure": "Bist du sicher?",
   "no_table": "Du hast keine Multiplikationstabellen gewählt.",
-  "game_summary": "Sie werden auf getestet werden:"
+  "game_summary": "Sie werden auf getestet werden:",
+  "game_rights": "Sie verwaltet",
+  "game_operation": " Multiplikationen.",
+  "summarize_title": "Zusammenfassen",
+  "go_home": "Zur Startseite",
+  "try_again": "Versuch es noch einmal"
 }

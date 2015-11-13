@@ -1,7 +1,9 @@
 ﻿{
   "initialyse_title": "Welcome!",
   "initialyse_text":  "Please select the multiplication tables to revise.",
-  "table_of":  "Multiplication tables of:",
+  "table_of": "Multiplication tables of:",
+  "ok":"Yes",
+  "cancel": "Cancel",
   "start": "Start",
   "menu": "Menu",
   "language": "Language",
@@ -14,5 +16,10 @@
   "language_confirm": "The language has just been updated.",
   "question_sure": "Are you sure?",
   "no_table": "You haven't selected table.",
-  "game_summary": "You will be tested on:"
+  "game_summary": "You will be tested on:",
+  "game_rights": "You succeeded",
+  "game_operation": "operations.",
+  "summarize_title": "Summerize",
+  "go_home": "Go Home",
+  "try_again": "Try again"
 }

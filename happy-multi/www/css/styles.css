@@ -1,2 +1,6 @@
-﻿body {
+﻿.multiplication {
+    font-size: 40px;
+}
+.multiplication .cross {
+    color: #E91E63;
 }

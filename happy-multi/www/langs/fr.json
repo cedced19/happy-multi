@@ -2,6 +2,8 @@
   "initialyse_title": "Bienvenue !",
   "initialyse_text": "Veuillez choisir les tables de multiplication à reviser.",
   "table_of": "Tables de multiplication de:",
+  "ok": "Oui",
+  "cancel": "Annuler",
   "start": "Commencez",
   "menu": "Menu",
   "language": "Langue",
@@ -14,5 +16,10 @@
   "language_confirm": "La langue vient d'être changée.",
   "question_sure": "Êtes-vous sure ?",
   "no_table": "Vous n'avez pas sélectionné de table.",
-  "game_summary": "Vous serez testé sur:"
+  "game_summary": "Vous serez testé sur:",
+  "game_rights": "Vous avez réussi",
+  "game_operation": "opérations.",
+  "summarize_title": "Récapitulatif",
+  "go_home": "Aller à l'acceuil",
+  "try_again": "Réessayer"
 }
