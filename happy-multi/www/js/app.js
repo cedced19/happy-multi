@@ -50,21 +50,9 @@ phonon.navigator().on({page: 'home', content: 'home.html', preventClose: false, 
     });
 });
 
-phonon.navigator().on({ page: 'game', content: 'game.html', preventClose: false, readyDelay: 0 }, function (activity) {
-
-    activity.onCreate(function () {
-        document.querySelector('#exit-btn').on('click', function () {
-            phonon.i18n().get(['warning', 'question_sure', 'ok', 'cancel'], function (values) {
-                var confirm = phonon.confirm(values.question_sure, values.warning, true, values.ok, values.cancel);
-                confirm.on('confirm', function () {
-                    phonon.navigator().changePage('home');
-                });
-                confirm.on('cancel', function () {
-
-                });
-            });
-        });
-    });
+phonon.navigator().on({ page: 'game', content: 'game.html', preventClose: true, readyDelay: 0 }, function (activity) {
+    
+    var rights = 0;
 
     activity.onReady(function () {
         var numbers = JSON.parse(localStorage.getItem('numbers'));
@@ -82,7 +70,6 @@ phonon.navigator().on({ page: 'game', content: 'game.html', preventClose: false,
             two: ''
         };
         var timer = 0;
-        var rights = 0;
         var summarize = [];
 
         var determinate = function () {
@@ -101,6 +88,8 @@ phonon.navigator().on({ page: 'game', content: 'game.html', preventClose: false,
         };
         
         var current = determinate();
+
+        rights = 0;
 
         document.querySelector('#rights').textContent = rights;
 
@@ -127,6 +116,18 @@ phonon.navigator().on({ page: 'game', content: 'game.html', preventClose: false,
             setInterval(function () {
                 timer++;
             }, 1000);
+        });
+    });
+
+    activity.onClose(function (self) {
+        if (rights == 20) {
+            return self.close();
+        }
+        phonon.i18n().get(['warning', 'question_sure', 'ok', 'cancel'], function (values) {
+            var confirm = phonon.confirm(values.question_sure, values.warning, true, values.ok, values.cancel);
+            confirm.on('confirm', function () {
+                self.close();
+            });
         });
     });
 });
