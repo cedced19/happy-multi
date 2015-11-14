@@ -20,6 +20,9 @@
   "game_rights": "Sie verwaltet",
   "game_operation": " Multiplikationen.",
   "summarize_title": "Zusammenfassen",
+  "summarize_text": "Mal sehen, was Sie getan haben. Für jede Multiplikation gibt es die Zeit, die Sie haben, dieses zu tun.",
+  "summarize_total_time": "Um dies zu tun, Sie haben",
+  "summarize_average_time": "Im Durchschnitt pro Multiplikation, nahmen Sie",
   "go_home": "Zur Startseite",
   "try_again": "Versuch es noch einmal"
 }

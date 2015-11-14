@@ -20,6 +20,9 @@
   "game_rights": "Vous avez réussi",
   "game_operation": "opérations.",
   "summarize_title": "Récapitulatif",
+  "summarize_text": "Voyons voir ce que vous avez fait. Pour chaque multiplication, il y a le temps que vous avez pris pour la faire.",
+  "summarize_total_time": "Pour faire cela, vous avez pris",
+  "summarize_average_time": "En moyenne, par multiplication, vous avez pris environ",
   "go_home": "Aller à l'acceuil",
   "try_again": "Réessayer"
 }

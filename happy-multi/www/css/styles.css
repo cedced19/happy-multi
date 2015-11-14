@@ -1,6 +1,9 @@
 ﻿.multiplication {
     font-size: 40px;
 }
-.multiplication .cross {
+.cross {
     color: #E91E63;
+}
+.cross:before {
+    content: "x";
 }

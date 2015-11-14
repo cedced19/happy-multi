@@ -8,9 +8,18 @@
     <div class="content">
         <div class="padded-full">
             <h1 data-i18n="text: summarize_title"></h1>
+            <p data-i18n="text: summarize_text"></p>
+            <p>
+                <span data-i18n="text: summarize_total_time"></span>
+                <span id="total"></span>
+                <span data-i18n="text: summarize_average_time"></span>
+                <span id="average"></span>
+            </p>
+            <div class="padded-bottom"></div>
+            <ul class="list" id="list"></ul>
             <div class="padded-bottom"></div>
             <div class="row">
-                <button class="btn fit-parent primary phone-12 tablet-5 column padded-bottom pull-right" data-i18n="text: go_home" href="#!home"></button>
+                <button class="btn fit-parent primary phone-12 tablet-5 column padded-bottom pull-right" data-i18n="text: go_home" data-navigation="home"></button>
                 <button class="btn fit-parent primary phone-12 tablet-5 column pull-left" data-i18n="text: try_again" data-navigation="$previous-page"></button>
             </div>
         </div>

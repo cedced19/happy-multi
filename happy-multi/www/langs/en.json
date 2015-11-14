@@ -20,6 +20,9 @@
   "game_rights": "You succeeded",
   "game_operation": "operations.",
   "summarize_title": "Summerize",
+  "summarize_text": "Let's see what you did. For each multiplication there is the time you took to do this one.",
+  "summarize_total_time": "To do that, you took",
+  "summarize_average_time": "On average, per multiplication, you took about",
   "go_home": "Go Home",
   "try_again": "Try again"
 }

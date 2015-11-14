@@ -20,7 +20,7 @@ phonon.navigator().on({page: 'home', content: 'home.html', preventClose: false, 
         var checkboxs = document.querySelectorAll('input[type=checkbox]');
         document.querySelector('#start-btn').on('click', function () {
             var numbers = [];
-            for (var i = 0; i < checkboxs.length; i++) {
+            for (var i in checkboxs) {
                 if (checkboxs[i].checked) {
                     numbers.push(checkboxs[i].name);
                 }
@@ -39,8 +39,8 @@ phonon.navigator().on({page: 'home', content: 'home.html', preventClose: false, 
     activity.onReady(function () {
         var checkboxs = document.querySelectorAll('input[type=checkbox]');
         var numbers = JSON.parse(localStorage.getItem('numbers'));
-        for (var i = 0; i < numbers.length; i++) {
-            for (var j = 0; j < checkboxs.length; j++) {
+        for (var i in numbers) {
+            for (var j in checkboxs) {
                 if (numbers[i] == checkboxs[j].name) {
                     checkboxs[j].checked = true;
                     break;
@@ -57,7 +57,7 @@ phonon.navigator().on({ page: 'game', content: 'game.html', preventClose: true, 
     activity.onReady(function () {
         var numbers = JSON.parse(localStorage.getItem('numbers'));
         var text = '';
-        for (var i = 0; i < numbers.length; i++) {
+        for (var i in numbers) {
             text += numbers[i];
             if (i !== (numbers.length - 1)) {
                 text += ', ';
@@ -106,17 +106,14 @@ phonon.navigator().on({ page: 'game', content: 'game.html', preventClose: true, 
                 document.querySelector('#rights').textContent = rights;
                 current = determinate();
                 if (rights == 20) {
-                    phonon.navigator().changePage('summarize', summarize);
+                    phonon.navigator().changePage('summarize', JSON.stringify(summarize));
                 }
             }
         });
 
-        document.querySelector('#result').on('keydown', function (e) {
-            e.target.removeEventListener(e.type, arguments.callee);
-            setInterval(function () {
-                timer++;
-            }, 1000);
-        });
+        setInterval(function () {
+            timer++;
+        }, 1000);
     });
 
     activity.onClose(function (self) {
@@ -137,7 +134,7 @@ phonon.navigator().on({ page: 'language', content: 'language.html', preventClose
     activity.onCreate(function () {
         var radios = document.querySelectorAll('input[name=language]');
         document.querySelector('#language-btn').on('click', function () {
-            for (var i = 0; i < radios.length; i++) {
+            for (var i in radios) {
                 if (radios[i].checked) {
                     localStorage.setItem('language', radios[i].value);
                     phonon.updateLocale(radios[i].value);
@@ -153,7 +150,7 @@ phonon.navigator().on({ page: 'language', content: 'language.html', preventClose
 
     activity.onReady(function () {
         var radios = document.querySelectorAll('input[name=language]');
-        for (var i = 0; i < radios.length; i++) {
+        for (var i in radios) {
             if (radios[i].value == language) {
                 radios[i].checked = true;
                 break;
@@ -163,7 +160,41 @@ phonon.navigator().on({ page: 'language', content: 'language.html', preventClose
 });
 
 phonon.navigator().on({ page: 'summarize', content: 'summarize.html', preventClose: false, readyDelay: 0 }, function (activity) {
-    
+    activity.onReady(function () {
+        var results = JSON.parse(window.location.hash.split("#!")[1].split("/")[1]);
+        var list = document.querySelector('#list');
+        var total = 0;
+        for (var i in results) {
+            var li = document.createElement('li');
+
+            var operation = document.createElement('span');
+            var one = document.createElement('span');
+            var cross = document.createElement('span');
+            var two = document.createElement('span');
+
+            one.textContent = results[i].one + ' ';
+            operation.appendChild(one);
+
+            cross.classList.add('cross');
+            operation.appendChild(cross);
+
+            two.textContent = ' ' + results[i].two;
+            operation.appendChild(two);
+
+            li.appendChild(operation);
+
+            var time = document.createElement('span');
+            time.classList.add('pull-right');
+            time.textContent = results[i].time + 's';
+            li.appendChild(time);
+
+            total = total + results[i].time;
+
+            list.appendChild(li);
+        }
+        document.querySelector('#total').textContent = ' ' + total + 's. ';
+        document.querySelector('#average').textContent = ' ' + total / 20 + 's.';
+    });
 });
 
 phonon.i18n().bind();
