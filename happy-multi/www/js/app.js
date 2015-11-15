@@ -162,6 +162,9 @@ phonon.navigator().on({ page: 'summarize', content: 'summarize.html', preventClo
     activity.onReady(function () {
         var results = JSON.parse(window.location.hash.split("#!")[1].split("/")[1]);
         var list = document.querySelector('#list');
+        while (list.firstChild) {
+            list.removeChild(list.firstChild);
+        }
         var total = 0;
         for (var i in results) {
             var li = document.createElement('li');
