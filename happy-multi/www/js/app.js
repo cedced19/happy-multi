@@ -59,10 +59,9 @@ phonon.navigator().on({ page: 'game', content: 'game.html', preventClose: true, 
         var text = '';
         for (var i in numbers) {
             text += numbers[i];
-            if (i !== (numbers.length - 1)) {
-                text += ', ';
-            }
+            text += ', ';
         };
+        text = text.substr(0, text.length - 2) + '.';
         document.querySelector('#numbers').textContent = text;
 
         var last = {
