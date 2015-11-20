@@ -105,7 +105,9 @@ phonon.navigator().on({ page: 'game', content: 'game.html', preventClose: true, 
                 document.querySelector('#rights').textContent = rights;
                 current = determinate();
                 if (rights == 20) {
-                    phonon.navigator().changePage('summarize', JSON.stringify(summarize));
+                    localStorage.setItem('summarize', JSON.stringify(summarize));
+                    summarize = [];
+                    phonon.navigator().changePage('summarize');
                 }
             }
         });
@@ -160,7 +162,7 @@ phonon.navigator().on({ page: 'language', content: 'language.html', preventClose
 
 phonon.navigator().on({ page: 'summarize', content: 'summarize.html', preventClose: false, readyDelay: 0 }, function (activity) {
     activity.onReady(function () {
-        var results = JSON.parse(window.location.hash.split("#!")[1].split("/")[1]);
+        var results = JSON.parse(localStorage.getItem('summarize'));
         var list = document.querySelector('#list');
         while (list.firstChild) {
             list.removeChild(list.firstChild);
